@@ -17,23 +17,27 @@
             android:layout_height="400dp"
             android:layout_margin="16dp"
             android:contentDescription="@string/story_image"
+            android:alpha="0"
             app:layout_constraintBottom_toTopOf="@+id/btnCamera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_photo_24" />
+            app:srcCompat="@drawable/ic_baseline_photo_24"
+            tools:alpha="100" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCamera"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/camera"
+            android:alpha="0"
             app:layout_constraintBottom_toTopOf="@+id/letDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btnGallery" />
+            app:layout_constraintStart_toEndOf="@+id/btnGallery"
+            tools:alpha="100" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnGallery"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,19 +45,23 @@
             android:elevation="2dp"
             android:scaleType="fitCenter"
             android:text="@string/gallery"
+            android:alpha="0"
             app:layout_constraintBottom_toBottomOf="@+id/btnCamera"
             app:layout_constraintEnd_toStartOf="@+id/btnCamera"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnCamera" />
+            app:layout_constraintTop_toTopOf="@+id/btnCamera"
+            tools:alpha="100" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/letDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:alpha="0"
             app:layout_constraintBottom_toTopOf="@+id/btnUpload"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            tools:alpha="100">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etDescription"
@@ -66,27 +74,16 @@
                 android:lines="5" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <com.nasyithm.dicostory.view.LoadingButton
             android:id="@+id/btnUpload"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/upload"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:alpha="0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
+            tools:alpha="100" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

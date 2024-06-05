@@ -7,15 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".view.story.detail.StoryDetailActivity">
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivItemPhoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@color/light_grey"
         android:contentDescription="@string/app_name"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:alpha="100" />
 
     <TextView
         android:id="@+id/tvItemName"
@@ -25,10 +37,12 @@
         android:paddingHorizontal="24dp"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivItemPhoto"
-        tools:text="Name" />
+        tools:text="Name"
+        tools:alpha="100" />
 
     <TextView
         android:id="@+id/tvItemDescription"
@@ -40,21 +54,11 @@
         android:textSize="16sp"
         android:maxLines="1"
         android:ellipsize="end"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvItemName"
-        tools:text="Description" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:text="Description"
+        tools:alpha="100" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

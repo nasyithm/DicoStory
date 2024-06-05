@@ -1,5 +1,7 @@
 package com.nasyithm.dicostory.view.story.detail
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -36,6 +38,7 @@ class StoryDetailActivity : AppCompatActivity() {
         storyId = intent.getStringExtra(EXTRA_STORY_ID).toString()
 
         getStoryDetailData()
+        playAnimation()
     }
 
     private fun getStoryDetailData() {
@@ -88,7 +91,18 @@ class StoryDetailActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun playAnimation() {
+        val ivItemPhoto = ObjectAnimator.ofFloat(binding.ivItemPhoto, View.ALPHA, 1f).setDuration(200)
+        val tvItemName = ObjectAnimator.ofFloat(binding.tvItemName, View.ALPHA, 1f).setDuration(200)
+        val tvItemDescription = ObjectAnimator.ofFloat(binding.tvItemDescription, View.ALPHA, 1f).setDuration(200)
+
+        AnimatorSet().apply {
+            playSequentially(ivItemPhoto, tvItemName, tvItemDescription)
+            startDelay = 100
+        }.start()
     }
 
     companion object {

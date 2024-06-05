@@ -1,5 +1,7 @@
 package com.nasyithm.dicostory.view.story.add
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.graphics.Rect
 import android.net.Uri
@@ -58,6 +60,7 @@ class AddStoryActivity : AppCompatActivity() {
         startGallery()
         startCamera()
         addStory()
+        playAnimation()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -128,7 +131,8 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
     private fun addStory() {
-        binding.btnUpload.setOnClickListener {
+        binding.btnUpload.setButtonText(getString(R.string.upload))
+        binding.btnUpload.addOnButtonClickListener {
             currentImageUri?.let { uri ->
                 val description = binding.etDescription.text.toString()
                 if (description.isNotEmpty()) {
@@ -176,7 +180,11 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        if (isLoading) {
+            binding.btnUpload.startLoading(getString(R.string.loading))
+        } else {
+            binding.btnUpload.stopLoading()
+        }
     }
 
     private fun showErrorAlertDialog(message: String) {
@@ -187,6 +195,23 @@ class AddStoryActivity : AppCompatActivity() {
             create()
             show()
         }
+    }
+
+    private fun playAnimation() {
+        val ivPreview = ObjectAnimator.ofFloat(binding.ivPreview, View.ALPHA, 1f).setDuration(200)
+        val btnGallery = ObjectAnimator.ofFloat(binding.btnGallery, View.ALPHA, 1f).setDuration(200)
+        val btnCamera = ObjectAnimator.ofFloat(binding.btnCamera, View.ALPHA, 1f).setDuration(200)
+        val letDescription = ObjectAnimator.ofFloat(binding.letDescription, View.ALPHA, 1f).setDuration(200)
+        val btnUpload = ObjectAnimator.ofFloat(binding.btnUpload, View.ALPHA, 1f).setDuration(200)
+
+        val together = AnimatorSet().apply {
+            playTogether(btnGallery, btnCamera)
+        }
+
+        AnimatorSet().apply {
+            playSequentially(ivPreview, together, letDescription, btnUpload)
+            startDelay = 100
+        }.start()
     }
 
     companion object {

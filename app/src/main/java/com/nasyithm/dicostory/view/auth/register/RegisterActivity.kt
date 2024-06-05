@@ -1,5 +1,7 @@
 package com.nasyithm.dicostory.view.auth.register
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
@@ -39,6 +41,7 @@ class RegisterActivity : AppCompatActivity() {
 
         register()
         inputValidation()
+        playAnimation()
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -58,7 +61,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register() {
-        binding.btnRegister.setOnClickListener {
+        binding.btnRegister.setButtonText(getString(R.string.register))
+        binding.btnRegister.addOnButtonClickListener {
             val name = binding.etName.text.toString()
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
@@ -126,6 +130,36 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        if (isLoading) {
+            binding.btnRegister.startLoading(getString(R.string.loading))
+        } else {
+            binding.btnRegister.stopLoading()
+        }
+    }
+
+    private fun playAnimation() {
+        val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val tvName = ObjectAnimator.ofFloat(binding.tvName, View.ALPHA, 1f).setDuration(200)
+        val letName = ObjectAnimator.ofFloat(binding.letName, View.ALPHA, 1f).setDuration(200)
+        val tvEmail = ObjectAnimator.ofFloat(binding.tvEmail, View.ALPHA, 1f).setDuration(200)
+        val letEmail = ObjectAnimator.ofFloat(binding.letEmail, View.ALPHA, 1f).setDuration(200)
+        val tvPassword = ObjectAnimator.ofFloat(binding.tvPassword, View.ALPHA, 1f).setDuration(200)
+        val letPassword = ObjectAnimator.ofFloat(binding.letPassword, View.ALPHA, 1f).setDuration(200)
+        val btnRegister = ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(200)
+
+        val togetherName = AnimatorSet().apply {
+            playTogether(tvName, letName)
+        }
+        val togetherEmail = AnimatorSet().apply {
+            playTogether(tvEmail, letEmail)
+        }
+        val togetherPassword = AnimatorSet().apply {
+            playTogether(tvPassword, letPassword)
+        }
+
+        AnimatorSet().apply {
+            playSequentially(tvTitle, togetherName, togetherEmail, togetherPassword, btnRegister)
+            startDelay = 100
+        }.start()
     }
 }

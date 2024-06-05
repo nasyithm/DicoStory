@@ -1,9 +1,12 @@
 package com.nasyithm.dicostory.view.splash
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,6 +31,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         splashIntent()
+        playAnimation()
     }
 
     private fun splashIntent() {
@@ -42,5 +46,14 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent, anim)
             finish()
         }
+    }
+
+    private fun playAnimation() {
+        val tvSplash = ObjectAnimator.ofFloat(binding.tvSplash, View.ALPHA, 1f).setDuration(1500)
+
+        AnimatorSet().apply {
+            playSequentially(tvSplash)
+            startDelay = 100
+        }.start()
     }
 }

@@ -15,12 +15,15 @@
         android:src="@mipmap/ic_launcher" />
 
     <TextView
+        android:id="@+id/tvSplash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivSplash"
         android:layout_marginTop="170dp"
+        android:alpha="0"
         android:textSize="18sp"
         android:textAlignment="center"
-        android:text="@string/app_name" />
+        android:text="@string/app_name"
+        tools:alpha="100" />
 
 </RelativeLayout>

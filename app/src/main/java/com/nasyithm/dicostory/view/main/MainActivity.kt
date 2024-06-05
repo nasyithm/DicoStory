@@ -1,6 +1,8 @@
 package com.nasyithm.dicostory.view.main
 
 import android.Manifest
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
         getStoriesData()
         swipeToRefresh()
         showAddStory()
+        playAnimation()
     }
 
     private fun changeLanguage() {
@@ -159,7 +162,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showStoryDetail(storyId: String) {
@@ -177,5 +180,18 @@ class MainActivity : AppCompatActivity() {
             )
             startActivity(addStoryIntent)
         }
+    }
+
+    private fun playAnimation() {
+        val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val btnLanguage = ObjectAnimator.ofFloat(binding.btnChangeLanguage, View.ALPHA, 1f).setDuration(200)
+        val btnLogout = ObjectAnimator.ofFloat(binding.btnLogout, View.ALPHA, 1f).setDuration(200)
+        val swipeRefresh = ObjectAnimator.ofFloat(binding.swipeRefreshLayout, View.ALPHA, 1f).setDuration(200)
+        val btnAddStory = ObjectAnimator.ofFloat(binding.btnAddStory, View.ALPHA, 1f).setDuration(200)
+
+        AnimatorSet().apply {
+            playSequentially(tvTitle, btnLanguage, btnLogout, swipeRefresh, btnAddStory)
+            startDelay = 100
+        }.start()
     }
 }
