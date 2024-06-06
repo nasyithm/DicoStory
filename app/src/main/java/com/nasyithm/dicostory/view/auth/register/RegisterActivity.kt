@@ -139,6 +139,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun playAnimation() {
         val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val ivRegister = ObjectAnimator.ofFloat(binding.ivRegister, View.ALPHA, 1f).setDuration(200)
         val tvName = ObjectAnimator.ofFloat(binding.tvName, View.ALPHA, 1f).setDuration(200)
         val letName = ObjectAnimator.ofFloat(binding.letName, View.ALPHA, 1f).setDuration(200)
         val tvEmail = ObjectAnimator.ofFloat(binding.tvEmail, View.ALPHA, 1f).setDuration(200)
@@ -158,7 +159,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         AnimatorSet().apply {
-            playSequentially(tvTitle, togetherName, togetherEmail, togetherPassword, btnRegister)
+            playSequentially(tvTitle, ivRegister, togetherName, togetherEmail, togetherPassword, btnRegister)
             startDelay = 100
         }.start()
     }

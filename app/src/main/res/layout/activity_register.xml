@@ -21,15 +21,26 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:alpha="100" />
 
+    <ImageView
+        android:id="@+id/ivRegister"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/login"
+        android:src="@drawable/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:layout_marginStart="32dp"
         android:alpha="0"
         android:text="@string/name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ivRegister"
         tools:alpha="100" />
 
     <com.google.android.material.textfield.TextInputLayout

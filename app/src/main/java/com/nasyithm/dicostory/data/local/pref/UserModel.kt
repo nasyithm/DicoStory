@@ -1,4 +1,4 @@
-package com.nasyithm.dicostory.data.pref
+package com.nasyithm.dicostory.data.local.pref
 
 data class UserModel(
     val userId: String,

@@ -24,7 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.nasyithm.dicostory.R
-import com.nasyithm.dicostory.data.pref.UserModel
+import com.nasyithm.dicostory.data.local.pref.UserModel
 import com.nasyithm.dicostory.databinding.ActivityLoginBinding
 import com.nasyithm.dicostory.data.Result
 import com.nasyithm.dicostory.databinding.LoadingButtonBinding
@@ -103,11 +103,13 @@ class LoginActivity : AppCompatActivity() {
                     }
                     is Result.Success -> {
                         showLoading(false)
-                        loginViewModel.saveSession(UserModel(
+                        loginViewModel.saveSession(
+                            UserModel(
                             result.data.loginResult?.userId.toString(),
                             result.data.loginResult?.name.toString(),
                             email,
-                            result.data.loginResult?.token.toString()))
+                            result.data.loginResult?.token.toString())
+                        )
                         AlertDialog.Builder(this).apply {
                             setTitle(getString(R.string.succeed))
                             setMessage(getString(R.string.login_succeed))
@@ -183,6 +185,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun playAnimation() {
         val tvTitle = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(200)
+        val ivLogin = ObjectAnimator.ofFloat(binding.ivLogin, View.ALPHA, 1f).setDuration(200)
         val tvEmail = ObjectAnimator.ofFloat(binding.tvEmail, View.ALPHA, 1f).setDuration(200)
         val letEmail = ObjectAnimator.ofFloat(binding.letEmail, View.ALPHA, 1f).setDuration(200)
         val tvPassword = ObjectAnimator.ofFloat(binding.tvPassword, View.ALPHA, 1f).setDuration(200)
@@ -198,7 +201,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         AnimatorSet().apply {
-            playSequentially(tvTitle, togetherEmail, togetherPassword, btnLogin, btnRegister)
+            playSequentially(tvTitle, ivLogin, togetherEmail, togetherPassword, btnLogin, btnRegister)
             startDelay = 100
         }.start()
     }

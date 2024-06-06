@@ -32,8 +32,7 @@
     <string name="camera_permission_granted">Permission to use the camera is granted</string>
     <string name="camera_permission_rejected">Permission to use camera rejected</string>
     <string name="loading">Loading</string>
-    <string name="appwidget_text">DICO STORY BANNER</string>
+    <string name="appwidget_text">DICOSTORY BANNER</string>
     <string name="empty_text">NO DATA</string>
-    <string name="add_widget">Add widget</string>
     <string name="app_widget_description">DicoStory Widget</string>
 </resources>

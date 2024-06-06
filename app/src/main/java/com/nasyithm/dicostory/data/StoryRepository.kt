@@ -6,8 +6,8 @@ import androidx.lifecycle.liveData
 import com.google.gson.Gson
 import com.nasyithm.dicostory.data.local.entity.Story
 import com.nasyithm.dicostory.data.local.room.StoryDao
-import com.nasyithm.dicostory.data.pref.UserModel
-import com.nasyithm.dicostory.data.pref.UserPreference
+import com.nasyithm.dicostory.data.local.pref.UserModel
+import com.nasyithm.dicostory.data.local.pref.UserPreference
 import com.nasyithm.dicostory.data.remote.response.StoryDetailResponse
 import com.nasyithm.dicostory.data.remote.response.ErrorResponse
 import com.nasyithm.dicostory.data.remote.response.LoginResponse

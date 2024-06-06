@@ -7,7 +7,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.nasyithm.dicostory.data.StoryRepository
 import com.nasyithm.dicostory.data.local.entity.Story
-import com.nasyithm.dicostory.data.pref.UserModel
+import com.nasyithm.dicostory.data.local.pref.UserModel
 import com.nasyithm.dicostory.data.remote.response.ListStoryItem
 import kotlinx.coroutines.launch
 

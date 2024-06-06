@@ -5,7 +5,7 @@
     android:initialLayout="@layout/dico_story_widget"
     android:minWidth="250dp"
     android:minHeight="110dp"
-    android:previewImage="@drawable/no_image"
+    android:previewImage="@drawable/dicostory_icon"
 
     android:previewLayout="@layout/dico_story_widget"
     android:targetCellWidth="4"

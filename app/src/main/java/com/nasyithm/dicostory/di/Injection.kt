@@ -3,8 +3,8 @@ package com.nasyithm.dicostory.di
 import android.content.Context
 import com.nasyithm.dicostory.data.StoryRepository
 import com.nasyithm.dicostory.data.local.room.StoryDatabase
-import com.nasyithm.dicostory.data.pref.UserPreference
-import com.nasyithm.dicostory.data.pref.dataStore
+import com.nasyithm.dicostory.data.local.pref.UserPreference
+import com.nasyithm.dicostory.data.local.pref.dataStore
 import com.nasyithm.dicostory.data.remote.retrofit.ApiConfig
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking

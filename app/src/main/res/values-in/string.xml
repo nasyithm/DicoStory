@@ -33,8 +33,7 @@
     <string name="camera_permission_granted">Izin penggunaan kamera diberikan</string>
     <string name="camera_permission_rejected">Izin penggunaan kamera ditolak</string>
     <string name="loading">Memuat</string>
-    <string name="appwidget_text">DICO STORY BANNER</string>
+    <string name="appwidget_text">DICOSTORY BANNER</string>
     <string name="empty_text">TIDAK ADA DATA</string>
-    <string name="add_widget">Tambahkan widget</string>
     <string name="app_widget_description">DicoStory Widget</string>
 </resources>
