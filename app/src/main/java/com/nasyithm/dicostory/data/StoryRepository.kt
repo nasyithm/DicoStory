@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.google.gson.Gson
+import com.nasyithm.dicostory.data.local.entity.Story
+import com.nasyithm.dicostory.data.local.room.StoryDao
 import com.nasyithm.dicostory.data.pref.UserModel
 import com.nasyithm.dicostory.data.pref.UserPreference
 import com.nasyithm.dicostory.data.remote.response.StoryDetailResponse
@@ -18,7 +20,8 @@ import retrofit2.HttpException
 
 class StoryRepository private constructor(
     private val userPreference: UserPreference,
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val storyDao: StoryDao
 ){
     fun register(name: String, email: String, password: String): LiveData<Result<ErrorResponse>> = liveData {
         emit(Result.Loading)
@@ -107,10 +110,15 @@ class StoryRepository private constructor(
         userPreference.logout()
     }
 
+    suspend fun insertStories(story: Story) = storyDao.insertStories(story)
+
+    suspend fun deleteAllStories() = storyDao.deleteAllStories()
+
     companion object {
         fun getInstance(
             userPreference: UserPreference,
-            apiService: ApiService
-        ): StoryRepository = StoryRepository(userPreference, apiService)
+            apiService: ApiService,
+            storyDao: StoryDao
+        ): StoryRepository = StoryRepository(userPreference, apiService, storyDao)
     }
 }

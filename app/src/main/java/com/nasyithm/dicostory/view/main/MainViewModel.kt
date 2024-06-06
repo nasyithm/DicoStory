@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.nasyithm.dicostory.data.StoryRepository
+import com.nasyithm.dicostory.data.local.entity.Story
 import com.nasyithm.dicostory.data.pref.UserModel
 import com.nasyithm.dicostory.data.remote.response.ListStoryItem
 import kotlinx.coroutines.launch
@@ -38,6 +39,18 @@ class MainViewModel(private val repository: StoryRepository) : ViewModel() {
     fun logout() {
         viewModelScope.launch {
             repository.logout()
+        }
+    }
+
+    fun insertStories(stories: Story) {
+        viewModelScope.launch {
+            repository.insertStories(stories)
+        }
+    }
+
+    fun deleteAllStories() {
+        viewModelScope.launch {
+            repository.deleteAllStories()
         }
     }
 }

@@ -126,7 +126,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.nasyithm.dicostory.view.LoadingButton
+    <com.nasyithm.dicostory.view.custom.LoadingButton
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

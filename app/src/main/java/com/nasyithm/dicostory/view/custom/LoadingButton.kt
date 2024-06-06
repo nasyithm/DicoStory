@@ -1,4 +1,4 @@
-package com.nasyithm.dicostory.view
+package com.nasyithm.dicostory.view.custom
 
 import android.content.Context
 import android.util.AttributeSet

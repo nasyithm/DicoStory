@@ -22,6 +22,7 @@ import com.nasyithm.dicostory.R
 import com.nasyithm.dicostory.data.remote.response.ListStoryItem
 import com.nasyithm.dicostory.databinding.ActivityMainBinding
 import com.nasyithm.dicostory.data.Result
+import com.nasyithm.dicostory.data.local.entity.Story
 import com.nasyithm.dicostory.view.ViewModelFactory
 import com.nasyithm.dicostory.view.auth.login.LoginActivity
 import com.nasyithm.dicostory.view.story.add.AddStoryActivity
@@ -126,6 +127,7 @@ class MainActivity : AppCompatActivity() {
                     setStoriesData(result.data.listStory)
                     mainViewModel.setStoriesData(result.data.listStory)
                     mainViewModel.setDataLoaded(true)
+                    insertStories(result.data.listStory)
                 }
                 is Result.Error -> {
                     showLoading(false)
@@ -179,6 +181,21 @@ class MainActivity : AppCompatActivity() {
                 this@MainActivity, AddStoryActivity::class.java
             )
             startActivity(addStoryIntent)
+        }
+    }
+
+    private fun insertStories(stories: List<ListStoryItem>) {
+        mainViewModel.deleteAllStories()
+        stories.forEach { story ->
+            val id = story.id.toString()
+            val name = story.name.toString()
+            val description = story.description.toString()
+            val photoUrl = story.photoUrl.toString()
+            val createdAt = story.createdAt.toString()
+            val lat = story.lat
+            val lon = story.lon
+            val storyEntity = Story(id, name, description, photoUrl, createdAt, lat, lon)
+            mainViewModel.insertStories(storyEntity)
         }
     }
 
