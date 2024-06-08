@@ -7,9 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Rect
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -27,7 +24,6 @@ import com.nasyithm.dicostory.R
 import com.nasyithm.dicostory.data.local.pref.UserModel
 import com.nasyithm.dicostory.databinding.ActivityLoginBinding
 import com.nasyithm.dicostory.data.Result
-import com.nasyithm.dicostory.databinding.LoadingButtonBinding
 import com.nasyithm.dicostory.view.ViewModelFactory
 import com.nasyithm.dicostory.view.auth.register.RegisterActivity
 import com.nasyithm.dicostory.view.main.MainActivity

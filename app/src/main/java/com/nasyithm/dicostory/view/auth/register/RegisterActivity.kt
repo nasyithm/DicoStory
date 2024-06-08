@@ -4,9 +4,6 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.graphics.Rect
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager

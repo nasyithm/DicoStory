@@ -1,10 +1,10 @@
-package com.nasyithm.dicostory.data.local.room;
+package com.nasyithm.dicostory.data.local.room
 
-import androidx.room.Dao;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
-import com.nasyithm.dicostory.data.local.entity.Story;
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.nasyithm.dicostory.data.local.entity.Story
 
 @Dao
 interface StoryDao {
