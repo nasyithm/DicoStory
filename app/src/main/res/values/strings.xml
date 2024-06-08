@@ -25,6 +25,7 @@
     <string name="login_succeed">You have successfully logged in</string>
     <string name="invalid_email">Invalid email format</string>
     <string name="invalid_password">Password must not be less than 8 characters</string>
+    <string name="empty_edit_text">Input cannot be empty</string>
     <string name="account_created">Account with email %1$s successfully created</string>
     <string name="input_desc_first">Please enter a description first</string>
     <string name="input_image_first">Please enter the image file first</string>

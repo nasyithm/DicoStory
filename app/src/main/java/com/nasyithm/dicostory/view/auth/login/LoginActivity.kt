@@ -69,7 +69,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login()
-        inputValidation()
         register()
         playAnimation()
     }
@@ -136,36 +135,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun inputValidation() {
-        binding.etEmail.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (!Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
-                    binding.etEmail.setError(getString(R.string.invalid_email), null)
-                } else {
-                    binding.etEmail.error = null
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {}
-        })
-
-        binding.etPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (s.toString().length < 8) {
-                    binding.etPassword.setError(getString(R.string.invalid_password), null)
-                } else {
-                    binding.etPassword.error = null
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {}
-        })
     }
 
     private fun register() {

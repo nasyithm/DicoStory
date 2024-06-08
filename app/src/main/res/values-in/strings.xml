@@ -26,6 +26,7 @@
     <string name="login_succeed">Anda berhasil login</string>
     <string name="invalid_email">Format email tidak valid</string>
     <string name="invalid_password">Password tidak boleh kurang dari 8 karakter</string>
+    <string name="empty_edit_text">Input tidak boleh kosong</string>
     <string name="account_created">Akun dengan email %1$s berhasil dibuat</string>
     <string name="input_desc_first">Silahkan masukkan deskripsi terlebih dahulu</string>
     <string name="input_image_first">Silahkan masukkan berkas gambar terlebih dahulu</string>
